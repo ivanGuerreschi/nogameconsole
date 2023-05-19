@@ -1,4 +1,4 @@
-#/* main.cc
+/* main.cc
 
    Copyright (C) 2023 Ivan Guerreschi.
 

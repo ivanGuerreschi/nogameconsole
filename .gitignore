@@ -50,10 +50,10 @@ m4/lt~obsolete.m4
 Makefile
 config.h
 
-src/geconsole
+src/nogameconsole
 src/.deps/*
 src/*.o
 
-lib/libgeconsole.a
+lib/libnogameconsole.a
 lib/.deps/*
 lib/*.o
