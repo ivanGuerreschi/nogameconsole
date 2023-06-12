@@ -36,7 +36,7 @@ public:
 		  char hc, int hx, int hy);
 
 private:
-  char mapchar = '*';
+  char mapchar = 'O';
 };
 
 #endif /* MAP_H */

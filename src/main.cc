@@ -29,7 +29,7 @@ main ()
   Flag flag {};
   Hero hero { '@' , 0, 0 };
   Info info {};
-  Map map { '*' };
+  Map map { 'O' };
 
   std::cout << info.get_package () << std::endl;
 
@@ -71,7 +71,6 @@ main ()
       if (hero.get_x_hero () == flag.get_x_flag () && hero.get_y_hero () == flag.get_y_flag ())
         {
           std::cout << "WIN!!" << std::endl;
-          std::cout << "Press q to exit" << std::endl;
           loop = false;
         }
     }
