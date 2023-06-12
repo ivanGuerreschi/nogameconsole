@@ -20,34 +20,25 @@
 #include "flag.h"
 #include "hero.h"
 #include "map.h"
+#include "mine.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 
-int YMINA1 = 0;
-int XMINA1 = 0;
-int YMINA2 = 0;
-int XMINA2 = 0;
-int YMINA3 = 0;
-int XMINA3 = 0;
-int YMINA4 = 0;
-int XMINA4 = 0;
-int YMINA5 = 0;
-int XMINA5 = 0;
+Mine *mine1;
+Mine *mine2;
+Mine *mine3;
+Mine *mine4;
+Mine *mine5;
 
 Map::Map (char mc) : mapchar (mc)
 {
   std::srand (static_cast<unsigned int> (std::time (NULL)));
-  YMINA1 = std::rand() % 10;
-  XMINA1 = std::rand() % 10;
-  YMINA2 = std::rand() % 10;
-  XMINA2 = std::rand() % 10;
-  YMINA3 = std::rand() % 10;
-  XMINA3 = std::rand() % 10;
-  YMINA4 = std::rand() % 10;
-  XMINA4 = std::rand() % 10;
-  YMINA5 = std::rand() % 10;
-  XMINA5 = std::rand() % 10;
+  mine1 = new Mine ('*', std::rand () % 10, std::rand () % 10);
+  mine2 = new Mine ('*', std::rand () % 10, std::rand () % 10);
+  mine3 = new Mine ('*', std::rand () % 10, std::rand () % 10);
+  mine4 = new Mine ('*', std::rand () % 10, std::rand () % 10);
+  mine5 = new Mine ('*', std::rand () % 10, std::rand () % 10);
 }
 
 std::vector<std::vector<char>>
@@ -66,17 +57,22 @@ Map::print_map(std::vector<std::vector<char>> map,
 	       char hc, int hx, int hy)
 {
     std::system ("clear");
-
-    if ((hx == XMINA1 && hy == YMINA1) ||
-	(hx == XMINA2 && hy == YMINA2) ||
-	(hx == XMINA3 && hy == YMINA3) ||
-	(hx == XMINA4 && hy == YMINA4) ||
-	(hx == XMINA5 && hy == YMINA5))
+    
+    if ((hx == mine1->get_x_mine () && hy == mine1->get_x_mine ()) ||
+	(hx == mine2->get_x_mine () && hy == mine2->get_x_mine ()) ||
+	(hx == mine3->get_x_mine () && hy == mine3->get_x_mine ()) ||
+	(hx == mine4->get_x_mine () && hy == mine4->get_x_mine ()) ||
+	(hx == mine5->get_x_mine () && hy == mine5->get_x_mine ()))
       {
 
 	std::cout << "GAMEOVER!" << std::endl;
 	std::cout << "Pres q to exit" << std::endl;
 	hc = '*';
+	delete mine1;
+	delete mine2;
+	delete mine3;
+	delete mine4;
+	delete mine5;
       }
     
     map[static_cast<unsigned int> (hy)][static_cast<unsigned int> (hx)] = hc;

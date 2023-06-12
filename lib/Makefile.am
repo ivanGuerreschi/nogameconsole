@@ -22,6 +22,6 @@ AM_CPPFLAGS = -I $(top_srcdir)/lib \
 			  -Wpointer-arith -Wcast-qual -Wsign-conversion 
 
 noinst_LIBRARIES = libnogameconsole.a
-noinst_HEADERS =flag.h hero.h info.h map.h
+noinst_HEADERS =flag.h hero.h info.h map.h mine.h
 
-libnogameconsole_a_SOURCES = $(libnogameconsole_a_HEADERS) flag.cc hero.cc info.cc map.cc
+libnogameconsole_a_SOURCES = $(libnogameconsole_a_HEADERS) flag.cc hero.cc info.cc map.cc mine.cc
